@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\DivisionCompanyRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\EmployeesRepository")
  */
-class DivisionCompany
+class Employees
 {
     /**
      * @ORM\Id()
@@ -19,32 +19,37 @@ class DivisionCompany
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name; // Наименование
+    private $name; // ФИО
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $location; // Адрес
+    private $post; // Должность
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="float")
      */
-    private $taxpayer_num; // ИНН
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $employees_num; // Кол-во сотрудников
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $sort_activity; // Род деятельности
+    private $financing; // Финансирование
 
     /**
      * @ORM\Column(type="integer")
      */
     private $patent_num; // Кол-во патентов
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $patent_application_num; // Кол-во заявок на патенты
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $research_num; // Количество исследований
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $publication_num; // Количество публикаций
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -64,55 +69,28 @@ class DivisionCompany
     public function setName(string $name): self
     {
         $this->name = $name;
-
         return $this;
     }
 
-    public function getLocation(): ?string
+    public function getPost(): ?string
     {
-        return $this->location;
+        return $this->post;
     }
 
-    public function setLocation(string $location): self
+    public function setPost(string $post): self
     {
-        $this->location = $location;
-
+        $this->post = $post;
         return $this;
     }
 
-    public function getTaxpayerNum(): ?string
+    public function getFinancing(): ?float
     {
-        return $this->taxpayer_num;
+        return $this->financing;
     }
 
-    public function setTaxpayerNum(string $taxpayer_num): self
+    public function setFinancing(float $financing): self
     {
-        $this->taxpayer_num = $taxpayer_num;
-
-        return $this;
-    }
-
-    public function getEmployeesNum(): ?int
-    {
-        return $this->employees_num;
-    }
-
-    public function setEmployeesNum(int $employees_num): self
-    {
-        $this->employees_num = $employees_num;
-
-        return $this;
-    }
-
-    public function getSortActivity(): ?int
-    {
-        return $this->sort_activity;
-    }
-
-    public function setSortActivity(int $sort_activity): self
-    {
-        $this->sort_activity = $sort_activity;
-
+        $this->financing = $financing;
         return $this;
     }
 
@@ -124,7 +102,39 @@ class DivisionCompany
     public function setPatentNum(int $patent_num): self
     {
         $this->patent_num = $patent_num;
+        return $this;
+    }
 
+    public function getPatentApplicationNum(): ?int
+    {
+        return $this->patent_application_num;
+    }
+
+    public function setPatentApplicationNum(int $patent_application_num): self
+    {
+        $this->patent_application_num = $patent_application_num;
+        return $this;
+    }
+
+    public function getResearchNum(): ?int
+    {
+        return $this->research_num;
+    }
+
+    public function setResearchNum(int $research_num): self
+    {
+        $this->research_num = $research_num;
+        return $this;
+    }
+
+    public function getPublicationNum(): ?int
+    {
+        return $this->publication_num;
+    }
+
+    public function setPublicationNum(int $publication_num): self
+    {
+        $this->publication_num = $publication_num;
         return $this;
     }
 
@@ -136,7 +146,6 @@ class DivisionCompany
     public function setPeriod(string $period): self
     {
         $this->period = $period;
-
         return $this;
     }
 }

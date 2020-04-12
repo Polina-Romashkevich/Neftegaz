@@ -26,13 +26,13 @@
                     <th>Кол-во сотрудников</th>
                     <th>Род деятельности</th>
                     <th>Кол-во патентов</th>
-                    <th>Период</th>
+                    <th>Временной промежуток</th>
                 </tr>
                 </thead>
 
             </table>
         </div>
-        <button class="js-button" data-toggle-text="Close">Open</button>
+        <button class="js-button" data-toggle-text="Закрыть">Открыть</button>
         <div class="js-container hidden">
             <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         </div>
@@ -57,7 +57,7 @@
             var table = $('#table').DataTable( {
                 dom: 'Bfrtip',
                 "lengthMenu": [
-                    3, 5, 10
+                    5, 10, 50
                 ],
                 buttons: [
                     {
@@ -98,7 +98,7 @@
                 select: {
                     style: 'single',
                     items: 'column',
-					selector: 'tr>td:nth-child(4), tr>td:nth-child(5), tr>td:nth-child(6), tr>td:nth-child(7),tr>td:nth-child(8), tr>td:nth-child(9), tr>td:nth-child(10), tr>td:nth-child(11), tr>td:nth-child(12), tr>td:nth-child(13), tr>td:nth-child(14), tr>td:nth-child(15), tr>td:nth-child(16)' //столбцы которые можно выбирать
+					selector: 'tr>td:nth-child(6)' //столбцы которые можно выбирать
                 },
 
             } );
@@ -109,7 +109,7 @@
             $button.click(function() {  //график появлялся без перезагрузки страницы
 
                 var column_data =  table.column( { selected: true } ).data().toArray();
-                var column_period =  table.column( 16 ).data().toArray();
+                var column_period =  table.column( 6 ).data().toArray();
 
                 var title = table.column( { selected: true } ).header();
 

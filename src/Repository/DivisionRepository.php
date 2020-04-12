@@ -2,35 +2,35 @@
 
 namespace App\Repository;
 
-use App\Entity\Employees;
+use App\Entity\Division;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Employees|null find($id, $lockMode = null, $lockVersion = null)
- * @method Employees|null findOneBy(array $criteria, array $orderBy = null)
- * @method Employees[]    findAll()
- * @method Employees[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Division|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Division|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Division[]    findAll()
+ * @method Division[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DivisionCompanyRepository extends ServiceEntityRepository
+class DivisionRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Employees::class);
+        parent::__construct($registry, Division::class);
     }
 
-    public function findAllDivisionCompanies()//генерируем запрос что выбираем синтаксисом доктрины
+    public function findAllDivision()//генерируем запрос что выбираем синтаксисом доктрины
     {
-        return $this->createQueryBuilder('dC')
+        return $this->createQueryBuilder('d')
             ->select(
-                'dC.id',
-                'dC.name',
-                'dC.location',
-                'dC.taxpayer_num',
-                'dC.employees_num',
-                'dC.sort_activity',
-                'dC.patent_num',
-                'dC.period')
+                'd.id',
+                'd.name',
+                'd.location',
+                'd.taxpayer_num',
+                'd.employees_num',
+                'd.sort_activity',
+                'd.patent_num',
+                'd.period')
             ->getQuery()
             ->getResult()
             ;

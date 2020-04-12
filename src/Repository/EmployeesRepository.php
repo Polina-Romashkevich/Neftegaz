@@ -2,45 +2,36 @@
 
 namespace App\Repository;
 
-use App\Entity\Company;
+use App\Entity\Employees;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Company|null find($id, $lockMode = null, $lockVersion = null)
- * @method Company|null findOneBy(array $criteria, array $orderBy = null)
- * @method Company[]    findAll()
- * @method Company[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Employees|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Employees|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Employees[]    findAll()
+ * @method Employees[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CompanyRepository extends ServiceEntityRepository
+class EmployeesRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Company::class);
+        parent::__construct($registry, Employees::class);
     }
 
-    public function findAllCompanies()//генерируем запрос что выбираем синтаксисом доктрины
+    public function findAllEmployees()//генерируем запрос что выбираем синтаксисом доктрины
     {
-        return $this->createQueryBuilder('c')
+        return $this->createQueryBuilder('em')
             ->select(
-                'c.id',
-                'c.name',
-                'c.location',
-                'c.taxpayer_num',
-                'c.unit_num',
-                'c.employees_num',
-                'c.sort_activity',
-                'c.investment',
-                'c.patent_num',
-                'c.patent_application_num',
-                'c.quote_num',
-                'c.research_num',
-                'c.publication_num',
-                'c.net_profit',
-                'c.intangible_asset',
-                'c.cost_oil_production',
-                'c.oil_production',
-                'c.period')
+                'em.id',
+                'em.name',
+                'em.post',
+                'em.financing',
+                'em.patent_num',
+                'em.patent_application_num',
+                'em.research_num',
+                'em.publication_num',
+                'em.period')
             ->getQuery()
             ->getResult()
             ;

@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Построение диаграмм{% endblock %}
+{% block title %}Удаление подразделений{% endblock %}
 
 {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
@@ -26,7 +26,7 @@
                     <th>Кол-во сотрудников</th>
                     <th>Род деятельности</th>
                     <th>Кол-во патентов</th>
-                    <th>Период</th>
+                    <th>Временной промежуток</th>
                 </tr>
                 </thead>
 
@@ -65,7 +65,7 @@
                 scrollCollapse: true,
                 paging:         true,
                 "lengthMenu": [
-                    3, 5, 10 //колво элементов на странице
+                    5, 10, 50 //колво элементов на странице
                 ],
                 columns: [
                     { "data": "name" },
