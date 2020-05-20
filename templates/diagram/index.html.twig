@@ -35,6 +35,8 @@
         </div>
         <button id="button">Удалить</button>
         <button class="js-button" data-toggle-text="Закрыть">Открыть</button>
+        <button id="button1">Построить график JPGRAPH</button>
+        <img src='data:image/png;base64, image'/>
         <div class="js-container hidden">
             <div id="chartContainer" style="height: 300px; width: 100%;"></div>
         </div>
@@ -46,6 +48,7 @@
     <script src="/js/jquery-ui.min.js"></script>
     <script src="/js/jquery.canvasjs.min.js"></script>
     <script src="/js/diagram.js"></script>
+    <script src="/js/graphics.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.js"></script>
     <script src="https://cdn.datatables.net/select/1.2.5/js/dataTables.select.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.js"></script>
@@ -171,6 +174,21 @@
                 }
 
             } );
+
+            $('#button1').click(function() {
+                /*var xhr = new XMLHttpRequest();
+                var coeffs = table.rows( '.selected' ).data();
+                var coeffsLength = coeffs.length;
+
+                if (coeffsLength > 0)
+                {
+                    xhr.open('POST','/qq',false);
+                    xhr.send();
+                }*/
+                Graphics();
+                alert( 'По этой кнопке должен отрисоваться график из GraphController');
+            });
+
         } );
 
     </script>

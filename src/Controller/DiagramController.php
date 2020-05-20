@@ -17,7 +17,7 @@ class DiagramController extends Controller
      */
     public function indexHistogram(Request $request) //столбчатая
     {
-        $coeff = $request->request->get("buildGraphForm"); //передаем значения коэффициентов
+       $coeff = $request->request->get("buildGraphForm"); //передаем значения коэффициентов
 
         if ($coeff == "co") //отображаем диаграмму для компании (из формы Select)
         {
@@ -46,6 +46,7 @@ class DiagramController extends Controller
             'data' => 2,
             'label' => 1
         ]);
+
     }
 
     /**
@@ -91,7 +92,7 @@ class DiagramController extends Controller
      * @Method("POST")
      * @Security("has_role('ROLE_USER')")
      */
-    public function indexLine(Request $request) //круговая
+    public function indexLine(Request $request) //линейная
     {
         $coeff = $request->request->get("buildGraphForm");
 

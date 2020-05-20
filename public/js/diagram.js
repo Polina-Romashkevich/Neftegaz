@@ -1,5 +1,4 @@
 function diagramHistogram(array, name = "Столбчатая") {
-
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,//появление столбиков
         exportEnabled: true, //сохранение в виде картинок
@@ -50,7 +49,6 @@ function diagramPieChart(array, name = "Круговая диаграмма") {
 // ]
         }]
     });
-
     chart.render();//отображение диаграммы
 }
 
@@ -78,5 +76,4 @@ function diagramLineChart(array, name = "Линейная") {
 
     });
     chart.render();
-
 }
